@@ -2,9 +2,32 @@ import org.jfugue.player.Player;
 
 public class JNMS_Song
 {
+	/*
+	 * 1 C
+	 * 2 D
+	 * 3 E
+	 * 4 F
+	 * 5 G
+	 * 6 A
+	 * 7 B
+	 *
+	 * _ i
+	 * __ s
+	 */
 	public static void main(String[] args)
 	{
-		String prelude = "";
+		String prelude = "E6s. C6s. E6s. G6i. G6s " +
+				"G6w " +
+				"D6i Bi D6i Gi. Gs " +
+				"Gi D6i E6i F6i " +
+				"G6i G6 E6i " +
+				"C6s. Gs. C6s. E6 " +
+				"G6i G6 E6i " +
+				"C6s. Gs. C6s. E6 " +
+				"C6i. C6s Ai Fs As " +
+				"Gi G Di " +
+				"Bi Gi Bi D6i " +
+				"C6 ";
 		String part1 = "";
 		String part2bass = "";
 		String part2treble = "";
