@@ -27,13 +27,20 @@ public class JNMS_Song
 				"C6i. C6s Ai Fs As " +
 				"Gi G Di " +
 				"Bi Gi Bi D6i " +
-				"C6 ";
-		String part1 = "";
+				"C6 0";
+		String part1 = "G. Ei " +
+				"A G " +
+				"C6. D6i " +
+				"C6 G " +
+				"" +
+				"A Ai Bi " +
+				"C6 Bi Ai " +
+				"G E6 D6w ";
 		String part2bass = "";
 		String part2treble = "";
 		String interlude = "";
 		String postlude = "";
 		Player p = new Player();
-		p.play(prelude + part1 + part2bass + part2treble + interlude + part1 + part2bass + part2treble + postlude);
+		p.play(/*prelude + */part1/* + part2bass + part2treble + interlude + part1 + part2bass + part2treble + postlude*/);
 	}
 }
