@@ -60,7 +60,7 @@ public class JNMS_Song
 				"C6 A | " +
 				"G6i. G6s G6i F6i | " +
 				"E6 D6 | " +
-				"C6i C6i Gi Fi | " +
+				"C6i C6i Bi Ai | " +
 				"D6q. E6i | " +
 				"G6q. F6i | " +
 				"E6i E6i D6 | " +
