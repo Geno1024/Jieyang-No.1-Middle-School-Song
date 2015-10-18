@@ -30,7 +30,8 @@ public class JNMS_Song
 				"Gi G Di | " +							// 5 5 2
 				"Bi Gi Bi D6i | " +						// 7 5 7 2
 				"C6 0 | ";								// 1 0
-		String part1 = "Gq. Ei | " +					// 5 3
+		String part1 = "I[Acoustic_Bass] " +
+				"Gq. Ei | " +							// 5 3
 				"A G | " +								// 6 5
 				"C6q. D6i | " +							// 1 2
 				"C6 G | " +								// 1 5
@@ -100,7 +101,7 @@ public class JNMS_Song
 				"E6q. D6i | " +							// 3 2
 				"C6i C6i B | " +						// 1 1 7
 				"C6 0 | ";								// 1 0
-		String interlude = "";
+		String interlude = prelude;
 		String postlude = "";
 
 		Pattern pPrelude = new Pattern(prelude);
@@ -112,7 +113,11 @@ public class JNMS_Song
 
 		Pattern pPart2 = pPart2treble.add(pPart2bass);
 
+		//Pattern main = pPart1.add(pPart2);
+
+		//Pattern full = pPrelude.add(main).add(pInterlude).add(main).add(pPostlude);
+
 		Player p = new Player();
-		p.play(pPrelude/* + part1 + pPart2 + part2bass + interlude + part1 + part2treble + part2bass + postlude*/);
+		p.play(pPart1);
 	}
 }
