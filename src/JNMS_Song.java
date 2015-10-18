@@ -17,7 +17,8 @@ public class JNMS_Song
 	 */
 	public static void main(String[] args)
 	{
-		String prelude = "E6s. C6s. E6s. G6i. G6s | " +	// 3 1 3 5 5
+		String prelude = "V0 I[String_Ensemble_1] " +
+				"E6s. C6s. E6s. G6i. G6s | " +			// 3 1 3 5 5
 				"G6w | " +								// 5
 				"D6i Bi D6i Gi. Gs | " +				// 2 7 2 5 5
 				"Gi D6i E6i F6i | " +					// 5 2 3 4
@@ -53,7 +54,8 @@ public class JNMS_Song
 				"F6i F6i E6i D6i | " +					// 4 4 3 2
 				"E6i E6i F6i 0i | " +					// 3 3 4 0
 				"G6q ";									// 5
-		String part2treble = "C6 | " +					// 1
+		String part2treble = "V0 " +
+				"C6 | " +								// 1
 				"A6w | " +								// 6
 				"A6q F6i. A6s | " +						// 6 4 6
 				"G6w | " +								// 5
@@ -75,7 +77,8 @@ public class JNMS_Song
 				"G6q. F6i | " +							// 5 4
 				"E6i E6i D6 | " +						// 3 3 2
 				"C6 0 | ";								// 1 0
-		String part2bass = "C6 | " +					// 1
+		String part2bass = "V1 " +
+				"C6 | " +								// 1
 				"F6w | " +								// 4
 				"F6q D6i. F6s | " +						// 4 2 4
 				"E6w | " +								// 3
@@ -99,7 +102,17 @@ public class JNMS_Song
 				"C6 0 | ";								// 1 0
 		String interlude = "";
 		String postlude = "";
+
+		Pattern pPrelude = new Pattern(prelude);
+		Pattern pPart1 = new Pattern(part1);
+		Pattern pPart2treble = new Pattern(part2treble);
+		Pattern pPart2bass = new Pattern(part2bass);
+		Pattern pInterlude = new Pattern(interlude);
+		Pattern pPostlude = new Pattern(postlude);
+
+		Pattern pPart2 = pPart2treble.add(pPart2bass);
+
 		Player p = new Player();
-		p.play(/*prelude + part1 + */part2treble/* + part2bass + interlude + part1 + part2treble + part2bass + postlude*/);
+		p.play(pPrelude/* + part1 + pPart2 + part2bass + interlude + part1 + part2treble + part2bass + postlude*/);
 	}
 }
