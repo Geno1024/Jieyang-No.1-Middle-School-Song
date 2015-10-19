@@ -1,9 +1,13 @@
+import org.jfugue.midi.MidiFileManager;
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.ManagedPlayer;
 import org.jfugue.player.Player;
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
+import javax.sound.midi.Sequence;
+import java.io.File;
+import java.io.IOException;
 
 public class JNMS_Song
 {
@@ -166,8 +170,20 @@ public class JNMS_Song
 		Pattern full = pPrelude.add(main).add(pInterlude).add(main).add(pPostlude);*/
 		//String full = prelude + part1 + part2treble;
 
+		try
+		{
+			File fs = new File("gen");
+			fs.mkdir();
+			File f = new File("gen/JNMS_Song.mid");
+			MidiFileManager.savePatternToMidi(new Pattern(preludeV0 + part1V0 + part2treble + preludeV1 + part1V1 + part2bass), f);
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		Player p = new Player();
 		p.play(preludeV0 + part1V0 + part2treble + preludeV1 + part1V1 + part2bass);
+
 		//p.play(preludeV0 + preludeV1);
 	}
 }
