@@ -1,5 +1,9 @@
 import org.jfugue.pattern.Pattern;
+import org.jfugue.player.ManagedPlayer;
 import org.jfugue.player.Player;
+
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MidiUnavailableException;
 
 public class JNMS_Song
 {
@@ -17,7 +21,8 @@ public class JNMS_Song
 	 */
 	public static void main(String[] args)
 	{
-		String prelude = "V0 I[String_Ensemble_1] " +
+		String preludeV0 = "" +
+				"V0 I[String_Ensemble_1] " +
 				"E6s. C6s. E6s. G6i. G6s | " +			// 3 1 3 5 5
 				"G6w | " +								// 5
 				"D6i Bi D6i Gi. Gs | " +				// 2 7 2 5 5
@@ -30,7 +35,21 @@ public class JNMS_Song
 				"Gi G Di | " +							// 5 5 2
 				"Bi Gi Bi D6i | " +						// 7 5 7 2
 				"C6 0 | ";								// 1 0
-		String part1 = "I[Acoustic_Bass] " +
+		String preludeV1 = "" +
+				"V1 I[String_Ensemble_1] " +
+				"0s. 0s. 0s. 0i. 0s | " +			// 3 1 3 5 5
+				"0w | " +								// 5
+				"0i 0i 0i 0i. 0s | " +				// 2 7 2 5 5
+				"0i 0i 0i 0i | " +					// 5 2 3 4
+				"0i 0 0i | " +						// 5 5 3
+				"0s. 0s. 0s. 0 | " +					// 1 5 1 3
+				"0i 0 0i | " +						// 5 5 3
+				"0s. 0s. 0s. 0 | " +					// 1 5 1 3
+				"0i. 0s 0i 0s 0s | " +				// 1 1 6 4 6
+				"0i 0 0i | " +							// 5 5 2
+				"0i 0i 0i 0i | " +						// 7 5 7 2
+				"0 0 | ";								// 1 0
+		String part1V0 = "I[Acoustic_Bass] " +
 				"Gq. Ei | " +							// 5 3
 				"A G | " +								// 6 5
 				"C6q. D6i | " +							// 1 2
@@ -55,7 +74,32 @@ public class JNMS_Song
 				"F6i F6i E6i D6i | " +					// 4 4 3 2
 				"E6i E6i F6i 0i | " +					// 3 3 4 0
 				"G6q ";									// 5
-		String part2treble = "V0 " +
+		String part1V1 = "I[Acoustic_Bass] " +
+				"0q. 0i | " +							// 5 3
+				"0 0 | " +								// 6 5
+				"0q. 0i | " +							// 1 2
+				"0 0 | " +								// 1 5
+				"| " +									// Sentence break
+				"0 0i 0i | " +							// 6 6 7
+				"0 0i 0i | " +							// 1 7 6
+				"0 0 | " +								// 5 3
+				"0w | " +								// 2
+				"| " +									// Sentence break
+				"0i. 0s 0i 0i | " +						// 5 5 5 3
+				"0 0 | " +								// 6 5
+				"| " +									// Sentence break
+				"0i. 0s 0i 0i | " +					// 1 1 1 2
+				"0 0 | " +								// 1 5
+				"| "  +									// Sentence break
+				"0i 0i 0 | " +							// 6 6
+				"0i 0i 0 | " +						// 4 4
+				"| " +									// Sentence break
+				"0i 0i 0i 0i | " +					// 6 6 6 5
+				"| " +									// Sentence break
+				"0i 0i 0i 0i | " +					// 4 4 3 2
+				"0i 0i 0i 0i | " +					// 3 3 4 0
+				"0q ";									// 5
+		String part2treble = "" +
 				"C6 | " +								// 1
 				"A6w | " +								// 6
 				"A6q F6i. A6s | " +						// 6 4 6
@@ -78,7 +122,7 @@ public class JNMS_Song
 				"G6q. F6i | " +							// 5 4
 				"E6i E6i D6 | " +						// 3 3 2
 				"C6 0 | ";								// 1 0
-		String part2bass = "V1 " +
+		String part2bass = "" +
 				"C6 | " +								// 1
 				"F6w | " +								// 4
 				"F6q D6i. F6s | " +						// 4 2 4
@@ -101,23 +145,29 @@ public class JNMS_Song
 				"E6q. D6i | " +							// 3 2
 				"C6i C6i B | " +						// 1 1 7
 				"C6 0 | ";								// 1 0
-		String interlude = prelude;
+		/*String interlude = prelude;
 		String postlude = "";
 
-		Pattern pPrelude = new Pattern(prelude);
-		Pattern pPart1 = new Pattern(part1);
+		Pattern pPrelude = new Pattern(prelude).add(preludeV1);
+
+		Pattern pPart1 = new Pattern(part1).add(part1V1);
+
 		Pattern pPart2treble = new Pattern(part2treble);
 		Pattern pPart2bass = new Pattern(part2bass);
+		Pattern pPart2 = pPart2treble.add(pPart2bass);
+
 		Pattern pInterlude = new Pattern(interlude);
 		Pattern pPostlude = new Pattern(postlude);
 
-		Pattern pPart2 = pPart2treble.add(pPart2bass);
 
-		//Pattern main = pPart1.add(pPart2);
 
-		//Pattern full = pPrelude.add(main).add(pInterlude).add(main).add(pPostlude);
+		Pattern main = pPart1.add(pPart2);
+
+		Pattern full = pPrelude.add(main).add(pInterlude).add(main).add(pPostlude);*/
+		//String full = prelude + part1 + part2treble;
 
 		Player p = new Player();
-		p.play(pPart1);
+		p.play(preludeV0 + part1V0 + part2treble + preludeV1 + part1V1 + part2bass);
+		//p.play(preludeV0 + preludeV1);
 	}
 }
