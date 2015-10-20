@@ -1,3 +1,5 @@
 Manifest-Version: 1.0
-Main-Class: JNMS_Song
+Class-Path: ./
+ ./jfugue-5.0.3.jar
 Created-By: Y. Z. Chen
+Main-Class: JNMS_Song

@@ -41,19 +41,19 @@ public class JNMS_Song
 				"C6 0 | ";								// 1 0
 		String preludeV1 = "" +
 				"V1 I[String_Ensemble_1] " +
-				"0s. 0s. 0s. 0i. 0s | " +			// 3 1 3 5 5
+				"0s. 0s. 0s. 0i. 0s | " +				// 3 1 3 5 5
 				"0w | " +								// 5
-				"0i 0i 0i 0i. 0s | " +				// 2 7 2 5 5
-				"0i 0i 0i 0i | " +					// 5 2 3 4
-				"0i 0 0i | " +						// 5 5 3
+				"0i 0i 0i 0i. 0s | " +					// 2 7 2 5 5
+				"0i 0i 0i 0i | " +						// 5 2 3 4
+				"0i 0 0i | " +							// 5 5 3
 				"0s. 0s. 0s. 0 | " +					// 1 5 1 3
-				"0i 0 0i | " +						// 5 5 3
+				"0i 0 0i | " +							// 5 5 3
 				"0s. 0s. 0s. 0 | " +					// 1 5 1 3
-				"0i. 0s 0i 0s 0s | " +				// 1 1 6 4 6
+				"0i. 0s 0i 0s 0s | " +					// 1 1 6 4 6
 				"0i 0 0i | " +							// 5 5 2
 				"0i 0i 0i 0i | " +						// 7 5 7 2
 				"0 0 | ";								// 1 0
-		String part1V0 = "I[Acoustic_Bass] " +
+		String part1V0 = "I[Voice] " +
 				"Gq. Ei | " +							// 5 3
 				"A G | " +								// 6 5
 				"C6q. D6i | " +							// 1 2
@@ -78,7 +78,7 @@ public class JNMS_Song
 				"F6i F6i E6i D6i | " +					// 4 4 3 2
 				"E6i E6i F6i 0i | " +					// 3 3 4 0
 				"G6q ";									// 5
-		String part1V1 = "I[Acoustic_Bass] " +
+		String part1V1 = "I[Voice] " +
 				"0q. 0i | " +							// 5 3
 				"0 0 | " +								// 6 5
 				"0q. 0i | " +							// 1 2
@@ -92,16 +92,16 @@ public class JNMS_Song
 				"0i. 0s 0i 0i | " +						// 5 5 5 3
 				"0 0 | " +								// 6 5
 				"| " +									// Sentence break
-				"0i. 0s 0i 0i | " +					// 1 1 1 2
+				"0i. 0s 0i 0i | " +						// 1 1 1 2
 				"0 0 | " +								// 1 5
 				"| "  +									// Sentence break
 				"0i 0i 0 | " +							// 6 6
-				"0i 0i 0 | " +						// 4 4
+				"0i 0i 0 | " +							// 4 4
 				"| " +									// Sentence break
-				"0i 0i 0i 0i | " +					// 6 6 6 5
+				"0i 0i 0i 0i | " +						// 6 6 6 5
 				"| " +									// Sentence break
-				"0i 0i 0i 0i | " +					// 4 4 3 2
-				"0i 0i 0i 0i | " +					// 3 3 4 0
+				"0i 0i 0i 0i | " +						// 4 4 3 2
+				"0i 0i 0i 0i | " +						// 3 3 4 0
 				"0q ";									// 5
 		String part2treble = "" +
 				"C6 | " +								// 1
@@ -170,20 +170,24 @@ public class JNMS_Song
 		Pattern full = pPrelude.add(main).add(pInterlude).add(main).add(pPostlude);*/
 		//String full = prelude + part1 + part2treble;
 
-		try
+		/*try
 		{
 			File fs = new File("gen");
-			fs.mkdir();
-			File f = new File("gen/JNMS_Song.mid");
-			MidiFileManager.savePatternToMidi(new Pattern(preludeV0 + part1V0 + part2treble + preludeV1 + part1V1 + part2bass), f);
+			if (fs.mkdir())
+			{
+				File f = new File("gen/JNMS_Song.mid");
+				MidiFileManager.savePatternToMidi(new Pattern(preludeV0 + part1V0 + part2treble + preludeV1 + part1V1 + part2bass), f);
+			}
 		}
 		catch (IOException e)
 		{
 			e.printStackTrace();
-		}
+		}*/
 		Player p = new Player();
-		p.play(preludeV0 + part1V0 + part2treble + preludeV1 + part1V1 + part2bass);
+		//p.play(preludeV0 + part1V0 + part2treble + preludeV1 + part1V1 + part2bass);
+		Pattern pPart2bass = new Pattern(part2bass).addToEachNoteElement("a40");
 
+		p.play(new Pattern(part2treble).addTrack(1, pPart2bass));
 		//p.play(preludeV0 + preludeV1);
 	}
 }
