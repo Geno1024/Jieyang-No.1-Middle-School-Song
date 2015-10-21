@@ -2,6 +2,8 @@ import org.jfugue.midi.MidiFileManager;
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.ManagedPlayer;
 import org.jfugue.player.Player;
+import org.jfugue.rhythm.Rhythm;
+import org.jfugue.theory.ChordProgression;
 
 import javax.sound.midi.InvalidMidiDataException;
 import javax.sound.midi.MidiUnavailableException;
@@ -40,7 +42,7 @@ public class JNMS_Song
 				"Bi Gi Bi D6i | " +						// 7 5 7 2
 				"C6 0 | ";								// 1 0
 		String preludeV1 = "" +
-				"V1 I[String_Ensemble_1] " +
+				"V1 I[Whistle] " +
 				"0s. 0s. 0s. 0i. 0s | " +				// 3 1 3 5 5
 				"0w | " +								// 5
 				"0i 0i 0i 0i. 0s | " +					// 2 7 2 5 5
@@ -78,11 +80,12 @@ public class JNMS_Song
 				"F6i F6i E6i D6i | " +					// 4 4 3 2
 				"E6i E6i F6i 0i | " +					// 3 3 4 0
 				"G6q ";									// 5
-		String part1V1 = "I[Voice] " +
-				"0q. 0i | " +							// 5 3
-				"0 0 | " +								// 6 5
-				"0q. 0i | " +							// 1 2
-				"0 0 | " +								// 1 5
+		String part1V1 = "" +
+				//"V9 L0 Rs [BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs [BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs [BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs [BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s L1" +
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +							// 5 3
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +								// 6 5
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +							// 1 2
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +								// 1 5
 				"| " +									// Sentence break
 				"0 0i 0i | " +							// 6 6 7
 				"0 0i 0i | " +							// 1 7 6
@@ -149,6 +152,29 @@ public class JNMS_Song
 				"E6q. D6i | " +							// 3 2
 				"C6i C6i B | " +						// 1 1 7
 				"C6 0 | ";								// 1 0
+		String part2beat = "" +
+				"[CRASH_CYMBAL_1] | " +								// 1
+				"[CRASH_CYMBAL_1]w | " +								// 4
+				"[CRASH_CYMBAL_1]q [CRASH_CYMBAL_1]i. [CRASH_CYMBAL_1]s | " +						// 4 2 4
+				"[CRASH_CYMBAL_1]w | " +								// 3
+				"| " +									// Sentence break
+				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | " +								// 3 5
+				"[CRASH_CYMBAL_1]w | " +								// 1
+				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1]i. [CRASH_CYMBAL_1]s | " +						// 1 6 1
+				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | " +								// 7 6
+				"| " +									// Sentence break
+				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | " +								// 5 0
+				"[CRASH_CYMBAL_1]i. [CRASH_CYMBAL_1]s [CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i | " +					// 1 1 1 7
+				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | " +								// 6 6
+				"| " +									// Sentence break
+				"[CRASH_CYMBAL_1]i. [CRASH_CYMBAL_1]s [CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i | " +					// 3 3 3 2
+				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | " +								// 1 7
+				"| " +									// Sentence break
+				"[CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i | " +						// 6 6 5 4
+				"[CRASH_CYMBAL_1]q. [CRASH_CYMBAL_1]i | " +							// 6 1
+				"[CRASH_CYMBAL_1]q. [CRASH_CYMBAL_1]i | " +							// 3 2
+				"[CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i [CRASH_CYMBAL_1] | " +						// 1 1 7
+				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | ";								// 1 0
 		/*String interlude = prelude;
 		String postlude = "";
 
@@ -187,7 +213,13 @@ public class JNMS_Song
 		//p.play(preludeV0 + part1V0 + part2treble + preludeV1 + part1V1 + part2bass);
 		Pattern pPart2bass = new Pattern(part2bass).addToEachNoteElement("a40");
 
-		p.play(new Pattern(part2treble).addTrack(1, pPart2bass));
+		p.play(new Pattern(part1V0).addTrack(9, new Pattern(part1V1)));
+		//p.play(new Pattern(part2treble).addTrack(1, pPart2bass).addTrack(2, new Pattern(part2beat)));
 		//p.play(preludeV0 + preludeV1);
+
+		/*Rhythm rhythm = new Rhythm()
+				.addLayer("o.s.o.sxo.s.o.sx")
+				.addLayer("");
+		//new Player().play(new ChordProgression("I IV vi V").eachChordAs("$_i $_i Ri $_i"), new Rhythm().addLayer("..X...X...X...XO"));*/
 	}
 }
