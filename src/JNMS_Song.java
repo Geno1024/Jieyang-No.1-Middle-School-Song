@@ -64,7 +64,7 @@ public class JNMS_Song
 				"A Ai Bi | " +							// 6 6 7
 				"C6 Bi Ai | " +							// 1 7 6
 				"G E6 | " +								// 5 3
-				"D6w | " +								// 2
+				"D6h | " +								// 2
 				"| " +									// Sentence break
 				"Gi. Gs Gi Ei | " +						// 5 5 5 3
 				"A G | " +								// 6 5
@@ -87,25 +87,25 @@ public class JNMS_Song
 				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +							// 1 2
 				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +								// 1 5
 				"| " +									// Sentence break
-				"0 0i 0i | " +							// 6 6 7
-				"0 0i 0i | " +							// 1 7 6
-				"0 0 | " +								// 5 3
-				"0w | " +								// 2
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +							// 6 6 7
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +							// 1 7 6
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +								// 5 3
+				"[BASS_DRUM]s Ri Rs [HAND_CLAP]i Rs [HAND_CLAP]s | " +								// 2
 				"| " +									// Sentence break
-				"0i. 0s 0i 0i | " +						// 5 5 5 3
-				"0 0 | " +								// 6 5
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +						// 5 5 5 3
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +								// 6 5
 				"| " +									// Sentence break
-				"0i. 0s 0i 0i | " +						// 1 1 1 2
-				"0 0 | " +								// 1 5
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +						// 1 1 1 2
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +								// 1 5
 				"| "  +									// Sentence break
-				"0i 0i 0 | " +							// 6 6
-				"0i 0i 0 | " +							// 4 4
+				"[ACOUSTIC_SNARE]i [ACOUSTIC_SNARE]i 0 | " +							// 6 6
+				"[ACOUSTIC_SNARE]i [ACOUSTIC_SNARE]i 0 | " +							// 4 4
 				"| " +									// Sentence break
-				"0i 0i 0i 0i | " +						// 6 6 6 5
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +						// 6 6 6 5
 				"| " +									// Sentence break
-				"0i 0i 0i 0i | " +						// 4 4 3 2
-				"0i 0i 0i 0i | " +						// 3 3 4 0
-				"0q ";									// 5
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +						// 4 4 3 2
+				"[ACOUSTIC_SNARE]s Rs [ACOUSTIC_SNARE]s Rs [ACOUSTIC_SNARE]s Rs Ri | " +						// 3 3 4 0
+				"[HAND_CLAP]s Ri Rs ";									// 5
 		String part2treble = "" +
 				"C6 | " +								// 1
 				"A6w | " +								// 6
@@ -213,7 +213,7 @@ public class JNMS_Song
 		//p.play(preludeV0 + part1V0 + part2treble + preludeV1 + part1V1 + part2bass);
 		Pattern pPart2bass = new Pattern(part2bass).addToEachNoteElement("a40");
 
-		p.play(new Pattern(part1V0).addTrack(9, new Pattern(part1V1)));
+		p.play(new Pattern(part1V0).addTrack(9, new Pattern(part1V1).addToEachNoteElement("a30")));
 		//p.play(new Pattern(part2treble).addTrack(1, pPart2bass).addTrack(2, new Pattern(part2beat)));
 		//p.play(preludeV0 + preludeV1);
 
