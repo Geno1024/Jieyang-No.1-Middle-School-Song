@@ -28,7 +28,7 @@ public class Test extends JFrame
 				@Override
 				public void actionPerformed(ActionEvent actionEvent)
 				{
-					p.play("V0 I[" + MidiDictionary.INSTRUMENT_BYTE_TO_STRING.get(Byte.parseByte(b.getText().split("\\.")[0])) + "] E6s. C6s. E6s. G6i. G6s G6w D6i Bi D6i Gi. Gs Gi D6i E6i F6i | ");
+					p.play("V0 I[" + MidiDictionary.INSTRUMENT_BYTE_TO_STRING.get(Byte.parseByte(b.getText().split("\\.")[0])) + "] D6h | ");
 					System.out.println(MidiDictionary.INSTRUMENT_BYTE_TO_STRING.get(Byte.parseByte(b.getText().split("\\.")[0])));
 				}
 			});

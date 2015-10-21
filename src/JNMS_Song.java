@@ -55,7 +55,7 @@ public class JNMS_Song
 				"0i 0 0i | " +							// 5 5 2
 				"0i 0i 0i 0i | " +						// 7 5 7 2
 				"0 0 | ";								// 1 0
-		String part1V0 = "I[Voice] " +
+		String part1V0 = "I[Poly_Synth] " +
 				"Gq. Ei | " +							// 5 3
 				"A G | " +								// 6 5
 				"C6q. D6i | " +							// 1 2
@@ -98,8 +98,8 @@ public class JNMS_Song
 				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +						// 1 1 1 2
 				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +								// 1 5
 				"| "  +									// Sentence break
-				"[ACOUSTIC_SNARE]i [ACOUSTIC_SNARE]i 0 | " +							// 6 6
-				"[ACOUSTIC_SNARE]i [ACOUSTIC_SNARE]i 0 | " +							// 4 4
+				"[CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i 0 | " +							// 6 6
+				"[CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i 0 | " +							// 4 4
 				"| " +									// Sentence break
 				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +						// 6 6 6 5
 				"| " +									// Sentence break
