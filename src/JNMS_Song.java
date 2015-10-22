@@ -104,7 +104,7 @@ public class JNMS_Song
 				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +						// 6 6 6 5
 				"| " +									// Sentence break
 				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +						// 4 4 3 2
-				"[ACOUSTIC_SNARE]s Rs [ACOUSTIC_SNARE]s Rs [ACOUSTIC_SNARE]s Rs Ri | " +						// 3 3 4 0
+				"[ACOUSTIC_SNARE]s Rs [ACOUSTIC_SNARE]s [HAND_CLAP]s [ACOUSTIC_SNARE]s Rs Ri | " +						// 3 3 4 0
 				"[HAND_CLAP]s Ri Rs ";									// 5
 		String part2treble = "" +
 				"C6 | " +								// 1
@@ -153,28 +153,28 @@ public class JNMS_Song
 				"C6i C6i B | " +						// 1 1 7
 				"C6 0 | ";								// 1 0
 		String part2beat = "" +
-				"[CRASH_CYMBAL_1] | " +								// 1
-				"[CRASH_CYMBAL_1]w | " +								// 4
-				"[CRASH_CYMBAL_1]q [CRASH_CYMBAL_1]i. [CRASH_CYMBAL_1]s | " +						// 4 2 4
-				"[CRASH_CYMBAL_1]w | " +								// 3
+				"[BASS_DRUM]s Ri Rs | " +								// 1
+				"[BASS_DRUM]s Ri Rs [HAND_CLAP]i Rs [HAND_CLAP]s [HAND_CLAP]i Rs [HAND_CLAP]s [HAND_CLAP]i Rs [HAND_CLAP]s | " +								// 4
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +						// 4 2 4
+				"[BASS_DRUM]s Ri Rs [HAND_CLAP]i Rs [HAND_CLAP]s [HAND_CLAP]i Rs [HAND_CLAP]s [HAND_CLAP]i Rs [HAND_CLAP]s | " +								// 3
 				"| " +									// Sentence break
-				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | " +								// 3 5
-				"[CRASH_CYMBAL_1]w | " +								// 1
-				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1]i. [CRASH_CYMBAL_1]s | " +						// 1 6 1
-				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | " +								// 7 6
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +								// 3 5
+				"[BASS_DRUM]s Ri Rs [HAND_CLAP]i Rs [HAND_CLAP]s [HAND_CLAP]i Rs [HAND_CLAP]s [HAND_CLAP]i Rs [HAND_CLAP]s | " +								// 1
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +						// 1 6 1
+				"[BASS_DRUM]s Ri Rs [HAND_CLAP]i Rs [HAND_CLAP]s [HAND_CLAP]i Rs [HAND_CLAP]s [HAND_CLAP]i Rs [HAND_CLAP]s | " +								// 7 6
 				"| " +									// Sentence break
-				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | " +								// 5 0
-				"[CRASH_CYMBAL_1]i. [CRASH_CYMBAL_1]s [CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i | " +					// 1 1 1 7
-				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | " +								// 6 6
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +								// 5 0
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +					// 1 1 1 7
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +								// 6 6
 				"| " +									// Sentence break
-				"[CRASH_CYMBAL_1]i. [CRASH_CYMBAL_1]s [CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i | " +					// 3 3 3 2
-				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | " +								// 1 7
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +					// 3 3 3 2
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +								// 1 7
 				"| " +									// Sentence break
-				"[CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i | " +						// 6 6 5 4
-				"[CRASH_CYMBAL_1]q. [CRASH_CYMBAL_1]i | " +							// 6 1
-				"[CRASH_CYMBAL_1]q. [CRASH_CYMBAL_1]i | " +							// 3 2
-				"[CRASH_CYMBAL_1]i [CRASH_CYMBAL_1]i [CRASH_CYMBAL_1] | " +						// 1 1 7
-				"[CRASH_CYMBAL_1] [CRASH_CYMBAL_1] | ";								// 1 0
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +						// 6 6 5 4
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +							// 6 1
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Rs [HAND_CLAP]s Rs | " +							// 3 2
+				"[BASS_DRUM]s Ri Rs [ACOUSTIC_SNARE]s Ri Rs | " +						// 1 1 7
+				"[BASS_DRUM]s Ri Rs [HAND_CLAP]i Rs [BASS_DRUM]s | ";								// 1 0
 		/*String interlude = prelude;
 		String postlude = "";
 
@@ -213,7 +213,8 @@ public class JNMS_Song
 		//p.play(preludeV0 + part1V0 + part2treble + preludeV1 + part1V1 + part2bass);
 		Pattern pPart2bass = new Pattern(part2bass).addToEachNoteElement("a40");
 
-		p.play(new Pattern(part1V0).addTrack(9, new Pattern(part1V1).addToEachNoteElement("a30")));
+		//p.play(new Pattern(part1V0).addTrack(9, new Pattern(part1V1).addToEachNoteElement("a30")));
+		p.play(new Pattern(part2treble).addTrack(1, pPart2bass).addTrack(9, new Pattern(part2beat).addToEachNoteElement("a40")));
 		//p.play(new Pattern(part2treble).addTrack(1, pPart2bass).addTrack(2, new Pattern(part2beat)));
 		//p.play(preludeV0 + preludeV1);
 
